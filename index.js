@@ -1,8 +1,11 @@
-var axios = require('axios');
+import axios from 'axios';
 
-var axiosInstance = axios.create({
-    baseURL: 'https://domain.com/foo/bar',
-    /* other custom settings */
-});
 
-module.exports = axiosInstance;
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+let token = document.head.querySelector('meta[name="csrf-token"]');
+if (token) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+}
+axios.defaults.baseURL = portal.API_URL + '/' + portal.ALIAS + '/' + portal.ACTIVITY_SLUG + '/' + portal.MODULE_INSTANCE_SLUG;
+
+export default axios;
