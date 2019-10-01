@@ -1,0 +1,19 @@
+{
+  "name": "http-client",
+  "version": "1.0.0",
+  "description": "An http client for the Bristol SU portal which respects the relative modular api url",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bristol-su/http-client.git"
+  },
+  "author": "Toby Twigger <toby.twigger@bristol.ac.uk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bristol-su/http-client/issues"
+  },
+  "homepage": "https://github.com/bristol-su/http-client#readme"
+}
