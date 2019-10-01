@@ -6,7 +6,12 @@ if (token) {
     axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 }
 axios.defaults.baseURL = portal.API_URL + '/' + portal.ALIAS + '/' + portal.ACTIVITY_SLUG + '/' + portal.MODULE_INSTANCE_SLUG;
-axios.defaults.headers.common['Group-Id'] =(portal.group === null ? null : portal.group.id);
-axios.defaults.headers.common['Role-Id'] = (portal.role === null ? null : portal.role.id);
+if(portal.group !== null) {
+    axios.defaults.headers.common['Group-Id'] = portal.group.id;
+}
+if(portal.role !== null) {
+    axios.defaults.headers.common['Role-Id'] = portal.role.id;
+
+}
 
 export default axios;
