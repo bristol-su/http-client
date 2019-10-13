@@ -11,6 +11,9 @@ if (token) {
 }
 
 axiosInstance.interceptors.request.use(function (config) {
+    if(config.params === undefined) {
+        config.params = {};
+    }
     if(portal.group !== null) {
         config.params['group_id'] = portal.group.id;
     }
