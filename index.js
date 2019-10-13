@@ -6,6 +6,7 @@ if (token) {
     axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 }
 axios.defaults.baseURL = portal.API_URL + '/' + portal.ALIAS + '/' + portal.ACTIVITY_SLUG + '/' + portal.MODULE_INSTANCE_SLUG;
+axios.defaults.params = {};
 if(portal.group !== null) {
     axios.defaults.params['group_id'] = portal.group.id;
 }
