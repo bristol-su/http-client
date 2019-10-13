@@ -7,10 +7,10 @@ if (token) {
 }
 axios.defaults.baseURL = portal.API_URL + '/' + portal.ALIAS + '/' + portal.ACTIVITY_SLUG + '/' + portal.MODULE_INSTANCE_SLUG;
 if(portal.group !== null) {
-    axios.defaults.headers.common['Group-Id'] = portal.group.id;
+    axios.defaults.params['group_id'] = portal.group.id;
 }
 if(portal.role !== null) {
-    axios.defaults.headers.common['Role-Id'] = portal.role.id;
+    axios.defaults.params['role_id'] = portal.role.id;
 
 }
 
