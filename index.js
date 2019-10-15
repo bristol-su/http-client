@@ -20,6 +20,9 @@ axiosInstance.interceptors.request.use(function (config) {
     if(portal.role !== null) {
         config.params['role_id'] = portal.role.id;
     }
+    if(portal.user !== null) {
+        config.params['user_id'] = portal.user.id;
+    }    
     return config;
 }, function (error) {
     return Promise.reject(error);
