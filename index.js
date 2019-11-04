@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: portal.API_URL + '/' + portal.ACTIVITY_SLUG + '/' + portal.MODULE_INSTANCE_SLUG + '/' + portal.ALIAS
+    baseURL: portal.API_URL + '/' + portal.A_OR_P + '/' + portal.ACTIVITY_SLUG + '/' + portal.MODULE_INSTANCE_SLUG + '/' + portal.ALIAS
 });
 
 axiosInstance.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -28,6 +28,8 @@ axiosInstance.interceptors.request.use(function (config) {
     return Promise.reject(error);
 });
 
-
+module.exports = {
+    
+}
 
 export default axiosInstance;
