@@ -28,8 +28,4 @@ axiosInstance.interceptors.request.use(function (config) {
     return Promise.reject(error);
 });
 
-module.exports = {
-    
-}
-
 export default axiosInstance;
