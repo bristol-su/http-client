@@ -15,7 +15,7 @@ axiosInstance.interceptors.request.use(function (config) {
         config.params = {};
     }
     if(portal.activityinstance !== null) {
-        config.params['aiid'] = portal.activityinstance.id;
+        config.params['activity_instance_id'] = portal.activityinstance.id;
     }
     if(portal.group !== null) {
         config.params['group_id'] = portal.group.id;
