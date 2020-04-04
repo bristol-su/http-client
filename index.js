@@ -11,23 +11,32 @@ if (token) {
 }
 
 axiosInstance.interceptors.request.use(function (config) {
-    if(config.params === undefined) {
+    if (config.params === undefined) {
         config.params = {};
     }
-    if(portal.activityinstance !== null) {
+    if (portal.activityinstance !== null) {
         config.params['activity_instance_id'] = portal.activityinstance.id;
     }
-    if(portal.group !== null) {
+    if (portal.group !== null) {
         config.params['group_id'] = portal.group.id;
     }
-    if(portal.role !== null) {
+    if (portal.role !== null) {
         config.params['role_id'] = portal.role.id;
     }
-    if(portal.user !== null) {
+    if (portal.user !== null) {
         config.params['user_id'] = portal.user.id;
-    }    
+    }
     return config;
 }, function (error) {
+    return Promise.reject(error);
+});
+
+axiosInstance.interceptors.response.use(function (response) {
+    return response;
+}, function (error) {
+    if (window.hasOwnProperty('processErrorsFromAxios') && typeof window.processErrorsFromAxios === 'function') {
+        window.processErrorsFromAxios(error);
+    }
     return Promise.reject(error);
 });
 
