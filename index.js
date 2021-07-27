@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: portal.API_URL + '/' + portal.A_OR_P + '/' + portal.ACTIVITY_SLUG + '/' + portal.MODULE_INSTANCE_SLUG + '/' + portal.ALIAS
+    baseURL: portal.API_URL + '/' + (portal.admin ? 'a' : 'p') + '/' + portal.activity.slug + '/' + portal.module_instance.slug + '/' + portal.module_instance.alias
 });
 
 axiosInstance.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -15,7 +15,7 @@ axiosInstance.interceptors.request.use(function (config) {
         config.params = {};
     }
     if (portal.activityinstance !== null) {
-        config.params['activity_instance_id'] = portal.activityinstance.id;
+        config.params['activity_instance_id'] = portal.activity_instance.id;
     }
     if (portal.group !== null) {
         config.params['group_id'] = portal.group.id;
