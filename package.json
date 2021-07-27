@@ -1,6 +1,6 @@
 {
   "name": "@bristol-su/http-client",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An http client for the Bristol SU portal which respects the relative modular api url",
   "main": "index.js",
   "scripts": {
